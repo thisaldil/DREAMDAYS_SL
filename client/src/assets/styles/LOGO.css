@@ -1,0 +1,59 @@
+.main {
+  --metal-tex: url(https://i.ytimg.com/vi/UEpN7K4S2Ew/maxresdefault.jpg);
+
+  background: white;
+  color: black; /* Change text color to black for visibility */
+  font-family: system-ui, sans-serif;
+  margin: 0; /* Remove margin to avoid extra spacing */
+  padding: 20px; /* Add padding for spacing around the content */
+  display: flex;
+  flex-direction: column; /* Change to column to stack title and paragraph */
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%; /* Ensure the main section spans full width */
+}
+
+.main a {
+  color: skyblue;
+  font-weight: bold;
+}
+
+.main .metal {
+  position: relative;
+  margin: 0; /* Remove margin to align the text properly */
+  color: transparent;
+  font-family: impact, sans-serif;
+  font-size: 3vw; /* Adjust font size for better scaling */
+  letter-spacing: 0.005em;
+  background-image: var(--metal-tex);
+  background-size: cover; /* Ensure the background image covers the text area */
+  background-position: center; /* Center the background image */
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-align: left; /* Align text to the left */
+  display: inline-block; /* Ensure text stays within the bounds */
+  overflow: hidden; /* Prevent overflow issues */
+  white-space: nowrap; /* Prevent the text from wrapping */
+}
+
+.main .metal::before {
+  content: ""; /* Use this to create extra visual effects if needed */
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+}
+
+/* New styles for the paragraph */
+.main p {
+  margin-top: 16px; /* Add margin above the paragraph for spacing */
+  font-size: 1.2rem; /* Set a comfortable font size for readability */
+  color: black; /* Set paragraph text color to black */
+  line-height: 1.5; /* Improve readability with line height */
+  max-width: 600px; /* Limit width for better text layout */
+}
