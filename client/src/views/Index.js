@@ -1,5 +1,6 @@
 /*eslint-disable*/
 import React, { useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../assets/styles/ExternalStyles.css";
 import "../assets/styles/weddingcoms.css";
@@ -7,6 +8,9 @@ import "../assets/styles/LOGO.css";
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
 import Slideshow from "../components/Cards/Slideshow.js";
+import Testimonials from "../components/TestimonialList.jsx";
+
+import { Heart } from "lucide-react";
 
 export default function Index() {
   useEffect(() => {
@@ -21,7 +25,7 @@ export default function Index() {
       document.body.removeChild(script);
     };
   }, []);
-
+  const [filled, setFilled] = useState(false);
   return (
     <>
       <IndexNavbar fixed />
@@ -29,23 +33,45 @@ export default function Index() {
         <div className="container mx-auto flex items-center justify-between">
           {/* Left Side Content */}
           <div className="main flex-1 items-center">
-            <h1 className="metal">DREAMDAYS_SL</h1>
-            <p className="mt-8 text-xl text-gray-900 max-w-3xl mx-auto leading-relaxed font-medium text-center">
+            <p>welcome to</p>
+            <h1 className="mt-8 metal leading-relaxed font-medium text-center">
+              DREAMDAYS_SL
+            </h1>
+            <p>
               <strong className="text-primary-500">
-                Welcome to DREAMDAYS_SL
+                Creating unforgettable weddings, one dream at a time.
               </strong>{" "}
-              — Your ultimate partner for planning dream weddings and
-              unforgettable events in Sri Lanka. Whether it's a romantic beach
-              ceremony or a grand celebration amidst lush landscapes, we connect
-              you with top-tier venues, trusted vendors, and expert planners to
-              bring your vision to life.
-              <br />
-              <br />
-              <span className="font-semibold text-lg block">
-                Start your journey with{" "}
-                <strong className="text-primary-500">DREAMDAYS_SL</strong> and
-                let us make your special day extraordinary.
-              </span>
+              <button
+                className="relative flex items-center justify-center p-3 transition duration-300 focus:outline-none focus:ring-0"
+                onClick={() => {
+                  setFilled(true);
+                  document
+                    .getElementById("next")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                {/* Heart Icon */}
+                <Heart
+                  className={`w-10 h-10 transition-all duration-700 ${
+                    filled
+                      ? "fill-red-500 text-red-500 scale-110 animate-fill"
+                      : "text-black"
+                  }`}
+                />
+
+                {/* Liquid Fill Effect (CSS) */}
+                <style>
+                  {`
+          @keyframes fillEffect {
+            0% { fill: transparent; }
+            100% { fill: red; }
+          }
+          .animate-fill {
+            animation: fillEffect 1s forwards;
+          }
+        `}
+                </style>
+              </button>
             </p>
           </div>
 
@@ -56,7 +82,10 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="mt-48 md:mt-40 pb-40 relative bg-blueGray-100">
+      <section
+        id="next"
+        className="mt-48 md:mt-40 pb-40 relative bg-blueGray-100"
+      >
         <div
           className="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute h-20"
           style={{ transform: "translateZ(0)" }}
@@ -82,7 +111,7 @@ export default function Index() {
               <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
                 <img
                   alt="..."
-                  src="https://images.pexels.com/photos/157757/wedding-dresses-fashion-character-bride-157757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  src="https://i.pinimg.com/736x/82/ea/dd/82eaddc5202eb576dc054a9ee2153d76.jpg"
                   className="w-full align-middle rounded-t-lg"
                 />
                 <blockquote className="relative p-8 mb-4">
@@ -114,7 +143,8 @@ export default function Index() {
                   <div className="relative flex flex-col mt-4">
                     <div className="px-4 py-5 flex-auto">
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                        <i className="fas fa-sitemap"></i>
+                        <i className="fas fa-handshake"></i>{" "}
+                        {/* Updated icon */}
                       </div>
                       <h6 className="text-xl mb-1 font-semibold">
                         Full-Service Wedding Planning
@@ -178,45 +208,46 @@ export default function Index() {
           <div className="flex flex-wrap items-center">
             <div className="w-full md:w-4/12 px-12 md:px-4 ml-auto mr-auto mt-48">
               <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                CSS Components
+                Wedding Services
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                Every element that you need in a product comes built in as a
-                component. All components fit perfectly with each other and can
-                have different colours.
+                From intimate ceremonies to grand celebrations, we provide
+                everything you need for your dream wedding. Explore our
+                exclusive services, tailored to make your special day
+                unforgettable.
               </p>
               <div className="block pb-6">
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Buttons
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Venues
                 </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Inputs
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Catering
                 </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Labels
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Photography
                 </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Menus
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Bridal Wear
                 </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Navbars
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Decor & Themes
                 </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Pagination
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Entertainment
                 </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Progressbars
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Invitations
                 </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Typography
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Honeymoon Packages
                 </span>
               </div>
               <a
-                href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus?ref=nr-index"
+                href="https://yourweddingsite.com/services"
                 target="_blank"
-                className="font-bold text-blueGray-700 hover:text-blueGray-500 ease-linear transition-all duration-150"
+                className="font-bold text-yellow-600 hover:text-yellow-400 ease-linear transition-all duration-150"
               >
-                View All{" "}
+                Explore More{" "}
                 <i className="fa fa-angle-double-right ml-1 leading-relaxed"></i>
               </a>
             </div>
@@ -266,51 +297,53 @@ export default function Index() {
             </div>
 
             <div className="w-full md:w-4/12 px-12 md:px-4 ml-auto mr-auto mt-48">
-              <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-                <i className="fas fa-drafting-compass text-xl"></i>
+              <div className="text-yellow-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+                <i className="fas fa-heart text-xl"></i>
               </div>
               <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                Design and Styling Services
+                Pre-Wedding & Post-Wedding Services
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                Focused on creating the aesthetic and theme of the wedding.
+                We offer complete assistance for both pre-wedding and
+                post-wedding events, ensuring a seamless journey from proposal
+                to honeymoon.
               </p>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                We created a set of Components that are dynamic and come to help
-                you.
+                Let us handle everything while you cherish every moment of your
+                big day.
               </p>
               <div className="block pb-6">
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Alerts
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Engagement Planning
                 </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Dropdowns
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Pre-Wedding Photoshoots
                 </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Menus
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Bachelor & Bachelorette Parties
                 </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Modals
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Bridal Showers
                 </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Navbars
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Wedding Receptions
                 </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Popovers
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Honeymoon Planning
                 </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Tabs
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Anniversary Celebrations
                 </span>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Tooltips
+                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-white last:mr-0 mr-2 mt-2">
+                  Thank You Notes & Gifts
                 </span>
               </div>
               <a
-                href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus?ref=nr-index"
+                href="https://yourweddingsite.com/services"
                 target="_blank"
-                className="font-bold text-blueGray-700 hover:text-blueGray-500 ease-linear transition-all duration-150"
+                className="font-bold text-yellow-600 hover:text-yellow-400 ease-linear transition-all duration-150"
               >
-                View all{" "}
+                Explore More{" "}
                 <i className="fa fa-angle-double-right ml-1 leading-relaxed"></i>
               </a>
             </div>
@@ -321,29 +354,26 @@ export default function Index() {
           <div className="items-center flex flex-wrap">
             <div className="w-full md:w-5/12 ml-auto px-12 md:px-4">
               <div className="md:pr-12">
-                <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-                  <i className="fas fa-file-alt text-xl"></i>
+                <div className="text-yellow-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+                  <i className="fas fa-calendar-alt text-xl"></i>
                 </div>
-                <h3 className="text-3xl font-semibold">
-                  Complex Documentation
-                </h3>
+                <h3 className="text-3xl font-semibold">Event Itinerary</h3>
                 <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                  This extension comes a lot of fully coded examples that help
-                  you get started faster. You can adjust the colors and also the
-                  programming language. You can change the text and images and
-                  you're good to go.
+                  Make and print a schedule for the big day! From wake-up to "I
+                  dos," create a complete itinerary that guides you through
+                  every special moment.
                 </p>
                 <ul className="list-none mt-6">
                   <li className="py-2">
                     <div className="flex items-center">
                       <div>
-                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-50 mr-3">
-                          <i className="fas fa-fingerprint"></i>
+                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-yellow-100 mr-3">
+                          <i className="fas fa-clock"></i>
                         </span>
                       </div>
                       <div>
                         <h4 className="text-blueGray-500">
-                          Built by Developers for Developers
+                          Customizable Wedding Day Timeline
                         </h4>
                       </div>
                     </div>
@@ -351,13 +381,13 @@ export default function Index() {
                   <li className="py-2">
                     <div className="flex items-center">
                       <div>
-                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-50 mr-3">
-                          <i className="fab fa-html5"></i>
+                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-yellow-100 mr-3">
+                          <i className="fas fa-file-download"></i>
                         </span>
                       </div>
                       <div>
                         <h4 className="text-blueGray-500">
-                          Carefully crafted code for Components
+                          Printable & Shareable Itinerary
                         </h4>
                       </div>
                     </div>
@@ -365,13 +395,13 @@ export default function Index() {
                   <li className="py-2">
                     <div className="flex items-center">
                       <div>
-                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-50 mr-3">
-                          <i className="far fa-paper-plane"></i>
+                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-500 bg-yellow-100 mr-3">
+                          <i className="fas fa-bell"></i>
                         </span>
                       </div>
                       <div>
                         <h4 className="text-blueGray-500">
-                          Dynamic Javascript Components
+                          Automatic Event Reminders
                         </h4>
                       </div>
                     </div>
@@ -394,70 +424,8 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="justify-center text-center flex flex-wrap mt-24">
-          <div className="w-full md:w-6/12 px-12 md:px-4">
-            <h2 className="font-semibold text-4xl">Beautiful Example Pages</h2>
-            <p className="text-lg leading-relaxed mt-4 mb-4 text-blueGray-500">
-              Notus React is a completly new product built using our past
-              experience in web templates. Take the examples we made for you and
-              start playing with them.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="block relative z-1 bg-blueGray-600">
-        <div className="container mx-auto">
-          <div className="justify-center flex flex-wrap">
-            <div className="w-full lg:w-12/12 px-4  -mt-24">
-              <div className="flex flex-wrap">
-                <div className="w-full lg:w-4/12 px-4">
-                  <h5 className="text-xl font-semibold pb-4 text-center">
-                    Login Page
-                  </h5>
-                  <Link to="/auth/login">
-                    <div className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
-                      <img
-                        alt="..."
-                        className="align-middle border-none max-w-full h-auto rounded-lg"
-                        src={require("assets/img/login.jpg").default}
-                      />
-                    </div>
-                  </Link>
-                </div>
-
-                <div className="w-full lg:w-4/12 px-4">
-                  <h5 className="text-xl font-semibold pb-4 text-center">
-                    Profile Page
-                  </h5>
-                  <Link to="/profile">
-                    <div className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
-                      <img
-                        alt="..."
-                        className="align-middle border-none max-w-full h-auto rounded-lg"
-                        src={require("assets/img/profile.jpg").default}
-                      />
-                    </div>
-                  </Link>
-                </div>
-
-                <div className="w-full lg:w-4/12 px-4">
-                  <h5 className="text-xl font-semibold pb-4 text-center">
-                    Landing Page
-                  </h5>
-                  <Link to="/landing">
-                    <div className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
-                      <img
-                        alt="..."
-                        className="align-middle border-none max-w-full h-auto rounded-lg"
-                        src={require("assets/img/landing.jpg").default}
-                      />
-                    </div>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="min-h-screen bg-gray-50 w-full py-12">
+          <Testimonials />
         </div>
       </section>
 
@@ -466,34 +434,26 @@ export default function Index() {
           <div className="flex flex-wrap justify-center">
             <div className="w-full md:w-5/12 px-12 md:px-4 ml-auto mr-auto md:mt-64">
               <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-                <i className="fas fa-code-branch text-xl"></i>
+                <i className="fas fa-ring text-xl"></i>
               </div>
               <h3 className="text-3xl mb-2 font-semibold leading-normal text-white">
-                Open Source
+                Wedding Planning Services
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-400">
-                Since{" "}
-                <a
-                  href="https://tailwindcss.com/?ref=creativetim"
-                  className="text-blueGray-300"
-                  target="_blank"
-                >
-                  Tailwind CSS
-                </a>{" "}
-                is an open source project we wanted to continue this movement
-                too. You can give this version a try to feel the design and also
-                test the quality of the code!
+                At Dremdays SL, we specialize in creating the perfect wedding
+                experience. From intimate ceremonies to grand celebrations, our
+                expert planners ensure every detail is flawless. Let us help you
+                bring your wedding vision to life.
               </p>
               <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-400">
-                Get it free on Github and please help us spread the news with a
-                Star!
+                Start your wedding planning journey today! Check out our
+                portfolio and get inspired for your big day.
               </p>
               <a
-                href="https://github.com/creativetimofficial/notus-react?ref=nr-index"
-                target="_blank"
-                className="github-star mt-4 inline-block text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg"
+                href="/portfolio"
+                className="github-star mt-4 inline-block text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-lightBlue-500 active:bg-lightBlue-600 uppercase text-sm shadow hover:shadow-lg"
               >
-                Github Star
+                Explore Portfolio
               </a>
             </div>
 
@@ -530,32 +490,32 @@ export default function Index() {
             <div className="w-full text-center lg:w-8/12">
               <p className="text-4xl text-center">
                 <span role="img" aria-label="love">
-                  😍
+                  💍
                 </span>
               </p>
               <h3 className="font-semibold text-3xl">
-                Do you love this Starter Kit?
+                Dreaming of your perfect wedding?
               </h3>
               <p className="text-blueGray-500 text-lg leading-relaxed mt-4 mb-4">
-                Cause if you do, it can be yours now. Hit the buttons below to
-                navigate to get the Free version for your next project. Build a
-                new web app or give an old project a new look!
+                At Dremdays SL, we specialize in turning your dream wedding into
+                reality. Our expert planners handle every detail, so you can
+                enjoy your big day stress-free. Whether it’s a luxurious
+                celebration or an intimate affair, we’ll create an unforgettable
+                experience.
               </p>
               <div className="sm:block flex flex-col mt-10">
                 <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/notus?ref=nr-index"
-                  target="_blank"
+                  href="/contact"
                   className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-2 bg-lightBlue-500 active:bg-lightBlue-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
                 >
-                  Get started
+                  Start Planning
                 </a>
                 <a
-                  href="https://github.com/creativetimofficial/notus-react?ref=nr-index"
-                  target="_blank"
+                  href="/portfolio"
                   className="github-star sm:ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg"
                 >
                   <i className="fab fa-github text-lg mr-1"></i>
-                  <span>Help With a Star</span>
+                  <span>Explore Our Portfolio</span>
                 </a>
               </div>
               <div className="text-center mt-16"></div>

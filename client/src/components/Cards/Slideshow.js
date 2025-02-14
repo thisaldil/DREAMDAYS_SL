@@ -1,41 +1,48 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 const slides = [
   {
-    title: "Machu Picchu",
-    subtitle: "Peru",
-    description: "Adventure is never far away",
+    title: "The Big Day",
+    subtitle: "",
+    description: "Dont let anyone steal your thunder",
     image:
-      "https://i.pinimg.com/736x/05/45/04/054504e4faceeb61c885dcb08e15e317.jpg",
+      "https://images.unsplash.com/photo-1726508684402-ee6029833696?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    title: "Machu Picchu",
-    subtitle: "Peru",
-    description: "Adventure is never far away",
+    title: "Wedding Cakes",
+    subtitle: "",
+    description: "Sweet cake brings love smiles",
     image:
       "https://i.pinimg.com/736x/4e/05/e0/4e05e0294d544efd1789c409160c1db3.jpg",
   },
   {
-    title: "Machu Picchu",
-    subtitle: "Peru",
-    description: "Adventure is never far away",
+    title: "Pre Wedding",
+    subtitle: "",
+    description: "Love shines through each shot",
     image:
       "https://images.unsplash.com/photo-1726766406089-0308c800b6b2?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    title: "Machu Picchu",
-    subtitle: "Peru",
-    description: "Adventure is never far away",
+    title: "Bridal gown &  jewelry",
+    subtitle: "",
+    description: "Bridal jewels shine bright today.",
     image:
       "https://images.unsplash.com/photo-1450297166380-cabe503887e5?q=80&w=1765&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    title: "Machu Picchu",
-    subtitle: "Peru",
+    title: "Wedding venues",
+    subtitle: "",
     description: "Adventure is never far away",
     image:
-      "https://images.unsplash.com/photo-1726508684402-ee6029833696?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiR2f73SHMaZ8uG7kPBLQi4mlpb_XBcJ4vDF3FKapvZivGaUWqsVCz79wqmAksZS5TYwZ8FbeJ60_uXJk3S_LRIFMLbC-Bvy3DrdyzLwfCgmYbBBth5qe4mjMboZRX0S7zWLTu2_X5G49A/s640/12494983_10153483465483353_7372612678272169085_n.jpg",
+  },
+
+  {
+    title: "Post Wedding",
+    subtitle: "",
+    description: "Love grows stronger every day.",
+    image:
+      "https://i.pinimg.com/736x/05/45/04/054504e4faceeb61c885dcb08e15e317.jpg",
   },
 ];
 

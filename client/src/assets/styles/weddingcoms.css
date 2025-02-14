@@ -41,7 +41,7 @@
   --s: 150px; /* Control the size */
   display: grid;
   grid: auto-flow var(--s) / repeat(2, var(--s));
-  gap: 1;
+  gap: px; /* Reduced from 1 (or any previous value) */
   place-items: center;
   margin: calc(var(--s) / 2);
   transform: rotate(45deg);
@@ -51,7 +51,7 @@
   width: 150%; /* Increased from 100% */
   aspect-ratio: 1;
   object-fit: cover;
-  filter: grayscale(80%);
+  filter: grayscale(100%);
   transform: scale(var(--_t, 1.2)) rotate(-45deg); /* Adjusted scale for a larger display */
   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
   cursor: pointer;
@@ -60,5 +60,5 @@
 
 .gall > img:hover {
   filter: grayscale(0);
-  --_t: 1.15;
+  transform: rotate(-45deg) scale(1.1); /* Enlarges image on hover */
 }

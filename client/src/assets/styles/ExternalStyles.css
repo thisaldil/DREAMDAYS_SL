@@ -72,6 +72,33 @@
 }
 
 .slideContent {
+  position: relative;
+  padding: 20px;
+  color: white;
+  z-index: 1; /* Ensure content stays above the background */
+}
+
+.slideContentInner {
+  position: relative;
+  text-align: center;
+}
+
+.slideTitle {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.slideSubtitle {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.slideDescription {
+  font-size: 1rem;
+}
+
+.slideContent {
   width: 30vw;
   height: 30vw;
   background-size: cover;

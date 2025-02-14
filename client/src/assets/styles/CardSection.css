@@ -40,3 +40,46 @@ body {
   left: unset;
   right: 400px;
 }
+.slide {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.slideBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Place background image behind content */
+}
+
+.slideContent {
+  position: relative;
+  padding: 20px;
+  color: white;
+  z-index: 1; /* Ensure content stays above the background */
+}
+
+.slideContentInner {
+  position: relative;
+  text-align: center;
+}
+
+.slideTitle {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.slideSubtitle {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.slideDescription {
+  font-size: 1rem;
+}
